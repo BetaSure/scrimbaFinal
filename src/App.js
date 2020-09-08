@@ -1,11 +1,15 @@
 import React from "react";
-import "./styles.css";
+import Header from "./components/Header";
+import Cart from "./pages/Cart";
+import Photos from "./pages/Photos";
 
-export default function App() {
+function App() {
   return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
+    <div>
+      <Header />
+      <h1>Home Page</h1>
     </div>
   );
 }
+
+export default App;
