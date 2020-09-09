@@ -13,7 +13,23 @@ function ContextProvider({ children }) {
       .then((data) => setImgList(data));
   }, []);
 
-  return <Context.Provider value={{ imgList }}>{children}</Context.Provider>;
+  const toggleFavorite = (id) => {
+    const newArr = imgList.map((x) => {
+      if (x.id === id) {
+        console.log(id);
+        console.log(!x.isFavorite);
+        return { ...x, isFavorite: !x.isFavorite };
+      }
+      return x;
+    });
+    setImgList(newArr);
+  };
+
+  return (
+    <Context.Provider value={{ imgList, toggleFavorite }}>
+      {children}
+    </Context.Provider>
+  );
 }
 
 export { ContextProvider, Context };
